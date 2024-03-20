@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Vote;
 
-class voteController extends Controller
+class VoteController extends Controller
 {
     public function list()
     {

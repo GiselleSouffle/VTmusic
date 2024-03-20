@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Gener;
 
-class generController extends Controller
+class GenerController extends Controller
 {
     public function index(){
         $geners = Gener::all();

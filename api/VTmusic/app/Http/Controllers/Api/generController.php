@@ -6,7 +6,7 @@ use App\Models\Gener;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class generController extends Controller
+class GenerController extends Controller
 {
     public function list()
     {

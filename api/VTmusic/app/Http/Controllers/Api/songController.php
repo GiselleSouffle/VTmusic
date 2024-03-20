@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Song;
 
-class songController extends Controller
+class SongController extends Controller
 {
     public function list()
     {

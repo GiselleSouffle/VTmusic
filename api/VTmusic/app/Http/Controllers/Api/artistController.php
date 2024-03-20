@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Artist;
 
-class artistController extends Controller
+class ArtistController extends Controller
 {
     public function list()
     {
