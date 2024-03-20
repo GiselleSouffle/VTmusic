@@ -4,8 +4,100 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Artist;
 
 class artistController extends Controller
 {
-    //
+    public function list()
+    {
+        $artists = Artist::all();
+
+        $list = [];
+        foreach ($artists as $artist) {
+            $object = [
+                "id" => $artist->id,
+                "name" => $artist->name,
+                "gender" => $artist->gender,
+                "album_id" => $artist->album_id,
+                "image" => $artist->image,
+                "created_at" => $artist->created_at,
+                "updated_at" => $artist->updated_at
+            ];
+            array_push($list, $object);
+        }
+
+        return response()->json($list);
+    }
+    public function show($id)
+    {
+        $artist = artist::where('id', '=', $id)->first();
+
+        $object = [
+            "id" => $artist->id,
+            "name" => $artist->name,
+            "gender" => $artist->gender,
+            "album_id" => $artist->album_id,
+            "image" => $artist->image,
+            "created_at" => $artist->created_at,
+            "updated_at" => $artist->updated_at
+        ];
+
+        return response()->json($object);
+    }
+    public function create(Request $request){
+            
+        $data = $request->validate([
+            "name"=> "min:3",
+            "gender"=> "max:2",
+            "album_id"=> "max:2",
+            "image"=> "max:2"
+        ]);
+        $artists = artist::create([
+            "name" => $data["name"],
+            "gender"=> $data["gender"],
+            "album_id"=> $data["album_id"],
+            "image"=> $data["image"],
+        ]);
+        if($artists){
+            $object = [
+                "response" => "Success. Items is correct",
+                "date"  => $artists
+            ];
+            return response()->json($artist);
+        }else{
+            $object = [
+                "response" => "Error: Something went wrong, please try again."
+            ];
+        }
+        return response()->json($object);
+    }
+    public function update(Request $request){
+        $data = $request->validate([
+            "id"=> "required|integer|min:1",
+            "name"=> "max:2",
+            "gender"=> "min:3|max:20",
+            "album_id"=> "min:3|max:20",
+            "image"=> "min:3|max:20",
+
+        ]);
+
+        $element = artist::where('id', '=', $data['id'])->first();
+        $element->name = $data['name'];
+        $element->gender = $data['gender'];
+        $element->album_id = $data['album_id'];
+        $element->image = $data['image'];
+        
+        if($element->update){
+            $object = [
+                "response" => "Success. Items is correct",
+                "date"  => $element
+            ];
+            return response()->json($element);
+        }else{
+            $object = [
+                "response" => "Error: Something went wrong, please try again."
+            ];
+        }
+        return response()->json($object);
+    }
 }
