@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('artists', function (Blueprint $table) {
-            $table->id();
             $table->timestamps();
         });
     }
