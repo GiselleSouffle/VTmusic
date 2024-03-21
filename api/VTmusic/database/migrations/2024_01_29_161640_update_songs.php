@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('songs', function (Blueprint $table) {
-            $table->integer('artist')->change();
-            $table->integer('gender')->change();
+            $table->integer('artist_id')->change();
+            $table->integer('gender_id')->change();
         });
     }
 

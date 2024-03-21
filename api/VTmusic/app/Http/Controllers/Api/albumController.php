@@ -17,7 +17,7 @@ class AlbumController extends Controller
             $object = [
                 "id" => $album->id,
                 "title" => $album->title,
-                "artist" => $album->artist,
+                "artist_id" => $album->artist,
                 "date" => $album->date,
                 "image" => $album->image,
                 "created_at" => $album->created_at,
@@ -36,7 +36,7 @@ class AlbumController extends Controller
         $object = [
             "id" => $album->id,
             "title" => $album->title,
-            "artist" => $album->artist,
+            "artist_id" => $album->artist,
             "date" => $album->date,
             "image" => $album->image,
             "created_at" => $album->created_at,
@@ -49,13 +49,13 @@ class AlbumController extends Controller
             
         $data = $request->validate([
             "title"=> "min:3",
-            "artist"=> "max:2",
+            "artist_id"=> "max:2",
             "date"=> "max:2",
             "image"=> "min:3",
         ]);
         $albums = album::create([
             "title" => $data["title"],
-            "artist"=> $data["artist"],
+            "artist_id"=> $data["artist"],
             "date"=>$date["date"],
             "image"=>$date["image"] 
         ]);
@@ -76,7 +76,7 @@ class AlbumController extends Controller
         $data = $request->validate([
             "id"=> "required|integer|min:1",
             "title"=> "min:3",
-            "artist"=> "max:2",
+            "artist_id"=> "max:2",
             "date"=> "max:2",
             "image"=> "min:3",
             
@@ -84,7 +84,7 @@ class AlbumController extends Controller
 
         $element = album::where('id', '=', $data['id'])->first();
         $element->title = $data['title'];
-        $element->artist = $data['artist'];
+        $element->artist = $data['artist_id'];
         $element->date = $data['date'];
         $element->image = $data['image'];
 

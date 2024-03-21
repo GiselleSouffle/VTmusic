@@ -17,8 +17,8 @@ class SongController extends Controller
             $object = [
                 "id" => $song->id,
                 "title" => $song->title,
-                "artist" => $song->artist,
-                "gender" => $song->gender,
+                "artist_id" => $song->artist,
+                "gender_id" => $song->gender,
                 "image" => $song->image,
                 "created_at" => $song->created_at,
                 "updated_at" => $song->updated_at
@@ -36,8 +36,8 @@ class SongController extends Controller
         $object = [
             "id" => $song->id,
                 "title" => $song->title,
-                "artist" => $song->artist,
-                "gender" => $song->gender,
+                "artist_id" => $song->artist,
+                "gender_id" => $song->gender,
                 "image" => $song->image,
                 "created_at" => $song->created_at,
                 "updated_at" => $song->updated_at
@@ -49,14 +49,14 @@ class SongController extends Controller
             
         $data = $request->validate([
             "title"=> "min:3",
-            "artist"=> "min:3",
-            "gender"=> "min:3",
+            "artist_id"=> "min:3",
+            "gender_id"=> "min:3",
             "image"=> "max:2"
         ]);
         $songs = song::create([
             "title" => $data["title"],
-            "artist"=> $data["artist"],
-            "gender"=> $data["gender"],
+            "artist_id"=> $data["artist"],
+            "gender_id"=> $data["gender"],
             "image"=> $data["image"],
         ]);
         if($songs){
@@ -76,15 +76,15 @@ class SongController extends Controller
         $data = $request->validate([
             "id"=> "required|integer|min:1",
             "title"=> "max:2",
-            "artist"=> "min:3|max:20",
-            "gender"=> "min:3|max:20",
+            "artist_id"=> "min:3|max:20",
+            "gender_id"=> "min:3|max:20",
             "image"=> "min:3|max:20",
         ]);
 
         $element = song::where('id', '=', $data['id'])->first();
         $element->title = $data['title'];
-        $element->artist = $data['artist'];
-        $element->gender = $data['gender'];
+        $element->artist = $data['artist_id'];
+        $element->gender = $data['gender_id'];
         $element->image = $data['image'];
         
         if($element->update){

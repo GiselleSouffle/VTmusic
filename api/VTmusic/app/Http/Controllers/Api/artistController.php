@@ -17,7 +17,7 @@ class ArtistController extends Controller
             $object = [
                 "id" => $artist->id,
                 "name" => $artist->name,
-                "gender" => $artist->gender,
+                "gender_id" => $artist->gender,
                 "album_id" => $artist->album_id,
                 "image" => $artist->image,
                 "created_at" => $artist->created_at,
@@ -35,7 +35,7 @@ class ArtistController extends Controller
         $object = [
             "id" => $artist->id,
             "name" => $artist->name,
-            "gender" => $artist->gender,
+            "gender_id" => $artist->gender,
             "album_id" => $artist->album_id,
             "image" => $artist->image,
             "created_at" => $artist->created_at,
@@ -48,13 +48,13 @@ class ArtistController extends Controller
             
         $data = $request->validate([
             "name"=> "min:3",
-            "gender"=> "max:2",
+            "gender_id"=> "max:2",
             "album_id"=> "max:2",
             "image"=> "max:2"
         ]);
         $artists = artist::create([
             "name" => $data["name"],
-            "gender"=> $data["gender"],
+            "gender_id"=> $data["gender_id"],
             "album_id"=> $data["album_id"],
             "image"=> $data["image"],
         ]);
@@ -75,7 +75,7 @@ class ArtistController extends Controller
         $data = $request->validate([
             "id"=> "required|integer|min:1",
             "name"=> "max:2",
-            "gender"=> "min:3|max:20",
+            "gender_id"=> "min:3|max:20",
             "album_id"=> "min:3|max:20",
             "image"=> "min:3|max:20",
 
@@ -83,7 +83,7 @@ class ArtistController extends Controller
 
         $element = artist::where('id', '=', $data['id'])->first();
         $element->name = $data['name'];
-        $element->gender = $data['gender'];
+        $element->gender = $data['gender_id'];
         $element->album_id = $data['album_id'];
         $element->image = $data['image'];
         
