@@ -11,10 +11,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VoteController;
 
 
-
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
