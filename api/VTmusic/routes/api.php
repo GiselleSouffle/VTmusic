@@ -1,15 +1,15 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\GenerController;
+use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\api\GenerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\ArtistController;
-use App\Http\Controllers\Api\AlbumController;
-use App\Http\Controllers\Api\CommentController;
-use App\Http\Controllers\Api\SongController;
-use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\VoteController;
+use App\Http\Controllers\api\ArtistController;
+use App\Http\Controllers\api\AlbumController;
+use App\Http\Controllers\api\CommentController;
+use App\Http\Controllers\api\SongController;
+use App\Http\Controllers\api\UserController;
+use App\Http\Controllers\api\VoteController;
 
 
 

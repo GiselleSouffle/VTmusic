@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -25,12 +25,12 @@ class AuthController extends Controller
 
         return response([
             'profile' => auth()->user(),
+            'access_token' => $accessToken,
             'message' => 'success'
         ]);
     }
 
     public function logout(Request $request)
     {
-
     }
 }
