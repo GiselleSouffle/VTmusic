@@ -25,7 +25,6 @@ class AuthController extends Controller
 
         return response([
             'profile' => auth()->user(),
-            'access_token' => $accessToken,
             'message' => 'success'
         ]);
     }

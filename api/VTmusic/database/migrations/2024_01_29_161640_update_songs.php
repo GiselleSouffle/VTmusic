@@ -11,10 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('songs', function (Blueprint $table) {
-            $table->integer('artist_id')->change();
-            $table->integer('gender_id')->change();
-        });
     }
 
     /**
@@ -22,6 +18,5 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('songs');
     }
 };

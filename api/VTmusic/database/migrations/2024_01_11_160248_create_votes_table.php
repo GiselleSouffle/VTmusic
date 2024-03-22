@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
-            $table->string("user");
+            $table->string("user_id");
             $table->integer("date");
             $table->integer("song_id");
             $table->integer("gender_id");

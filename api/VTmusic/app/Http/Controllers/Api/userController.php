@@ -22,7 +22,6 @@ class UserController extends Controller
                 "phone" => $user->phone,
                 "email_verified_ad" => $user->email_verified_ad,
                 "image" => $user->image,
-                "remember_token" => $user->remember_token,
                 "created_at" => $user->created_at,
                 "updated_at" => $user->updated_at
             ];
@@ -44,7 +43,6 @@ class UserController extends Controller
                 "phone" => $user->phone,
                 "email_verified_ad" => $user->email_verified_ad,
                 "image" => $user->image,
-                "remember_token" => $user->remember_token,
                 "created_at" => $user->created_at,
                 "updated_at" => $user->updated_at
         ];
@@ -61,7 +59,6 @@ class UserController extends Controller
             "email_verified"=> "max:2",
             "password"=> "max:2",
             "image"=> "max:2",
-            "remember_token"=> "max:2"
 
         ]);
         $comments = Comment::create([
@@ -72,7 +69,6 @@ class UserController extends Controller
             "email_verified"=> $data["email_verified"],
             "password"=> $data["password"],
             "image"=> $data["image"],
-            "remember_token"=> $data["remember_token"],
 
         ]);
         if($songs){
@@ -98,7 +94,6 @@ class UserController extends Controller
             "email_verified"=> "min:3|max:20",
             "password"=> "min:3|max:20",
             "image"=> "min:3|max:20",
-            "remember_token"=> "min:3|max:20",            
         ]);
 
         $element = song::where('id', '=', $data['id'])->first();
@@ -109,7 +104,6 @@ class UserController extends Controller
         $element->email_verified = $data['email_verified'];
         $element->password = $data['password'];
         $element->image = $data['image'];
-        $element->remember_token = $data['remember_token'];
 
         if($element->update){
             $object = [

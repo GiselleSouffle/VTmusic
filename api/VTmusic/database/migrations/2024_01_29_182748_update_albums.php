@@ -11,9 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('albums_id', function (Blueprint $table) {
-            $table->integer('artist_id')->change();
-        });
     }
 
     /**
@@ -21,6 +18,5 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('albums_id');
     }
 };
