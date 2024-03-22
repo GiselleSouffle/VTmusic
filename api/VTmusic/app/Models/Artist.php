@@ -9,5 +9,5 @@ class Artist extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "name","gender","album_id","image"];
+        "name","gender_id","album_id","image"];
 }

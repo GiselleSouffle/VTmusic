@@ -9,5 +9,5 @@ class Album extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "title","artist","date","image" ];
+        "title","artist_id","date","image" ];
 }
